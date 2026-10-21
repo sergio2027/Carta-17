@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0118">
+  <meta name="description" content="17 meses de amor 💜">
+
+  <title>17 Meses Contigo 💜</title>
+
+  <!-- Fuentes elegantes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════
+     SECCIÓN 1 — PANTALLA INICIAL  (corazones + botón)
+     ════════════════════════════════════════════════════ -->
+<section id="intro" class="scene scene--intro" aria-label="Pantalla de bienvenida">
+
+  <!-- Canvas para el sistema de partículas -->
+  <canvas id="canvas-particles" aria-hidden="true"></canvas>
+
+  <!-- Contenido central -->
+  <div class="intro-center">
+    <p class="intro-tagline">17 meses de amor ✦</p>
+
+    <h1 class="intro-title">
+      <span>Mi amor,</span>
+      <span>hoy es nuestro día</span>
+    </h1>
+
+    <button id="btn-enter" class="btn-main" aria-label="Comenzar la experiencia">
+      <span class="btn-inner">Feliz día mi amor</span>
+      <span class="btn-ring" aria-hidden="true"></span>
+    </button>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECCIÓN 2 — CRONÓMETRO DE NUESTRO AMOR
+     ════════════════════════════════════════════════════ -->
+<section id="timer-section" class="scene scene--timer" aria-label="Nuestro tiempo juntos">
+
+  <div class="timer-card">
+    <div class="timer-badge">✦ NUESTRA HISTORIA ✦</div>
+    <h2 class="timer-title">Cada segundo a tu lado, mi Dania</h2>
+    <p class="timer-subtitle">Un contador que comenzó en un instante muy especial... ¿Recuerdas qué momento exacto fue? 💜</p>
+
+    <div class="timer-grid">
+      <div class="timer-box">
+        <span class="timer-val" id="timer-days">0</span>
+        <span class="timer-lbl">Días</span>
+      </div>
+      <div class="timer-box">
+        <span class="timer-val" id="timer-hours">00</span>
+        <span class="timer-lbl">Horas</span>
+      </div>
+      <div class="timer-box">
+        <span class="timer-val" id="timer-minutes">00</span>
+        <span class="timer-lbl">Minutos</span>
+      </div>
+      <div class="timer-box">
+        <span class="timer-val" id="timer-seconds">00</span>
+        <span class="timer-lbl">Segundos</span>
+      </div>
+      <div class="timer-box timer-box--ms">
+        <span class="timer-val" id="timer-ms">000000</span>
+        <span class="timer-lbl">Microsegundos</span>
+      </div>
+    </div>
+
+    <div class="timer-quote">
+      <span class="timer-heart-pulse" aria-hidden="true">💜</span>
+      <p>«Y con cada microsegundo que pasa, te amo mucho más»</p>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECCIÓN: TRIVIA — ¿CUÁNTO NOS CONOCEMOS?
+     ════════════════════════════════════════════════════ -->
+<section id="quiz-section" class="scene scene--quiz" aria-label="Trivia romántica">
+
+  <div class="quiz-card" id="quiz-card">
+    <div class="quiz-badge">✦ MINI-JUEGO DE RECUERDOS ✦</div>
+    <h2 class="quiz-title">¿Cuánto recuerdas de nosotros, mi amor?</h2>
+    <p class="quiz-subtitle">Demuestra si eres experta en nuestra historia 💜</p>
+
+    <!-- Barra de progreso -->
+    <div class="quiz-progress-track" aria-hidden="true">
+      <div class="quiz-progress-bar" id="quiz-progress-bar"></div>
+    </div>
+
+    <div id="quiz-card-content" class="quiz-content">
+      <span class="quiz-counter" id="quiz-counter">Pregunta 1 de 4</span>
+      <h3 class="quiz-question-text" id="quiz-question-text"></h3>
+
+      <div class="quiz-options" id="quiz-options"></div>
+
+      <div id="quiz-feedback" class="quiz-feedback hidden" aria-live="polite"></div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECCIÓN: JUEGO BONUS — RASCA Y GANA ROMÁNTICO
+     ════════════════════════════════════════════════════ -->
+<section id="scratch-section" class="scene scene--scratch hidden" aria-label="Juego bonus de rasca y gana">
+
+  <div class="scratch-card-wrap">
+    <div class="scratch-badge">✦ PREMIO ESPECIAL ✦</div>
+    <h2 class="scratch-title">¡Has desbloqueado tu sorpresa!</h2>
+    <p class="scratch-subtitle">Raspa con tu dedo sobre la tarjeta para revelar tu ticket de amor 💜</p>
+
+    <!-- Contenedor del ticket raspable -->
+    <div class="scratch-ticket-container">
+      <!-- Lo que está oculto debajo -->
+      <div class="scratch-underlayer">
+        <div class="love-ticket">
+          <div class="ticket-top">
+            <span class="ticket-seal">💜 OFICIAL 💜</span>
+            <span class="ticket-code">#17MESES-DANIA</span>
+          </div>
+          <h4 class="ticket-title">VALE POR:</h4>
+          <p class="ticket-reward">Una cena romántica donde tú elijas + Abrazos y besos ilimitados + Amor eterno con Sergio 💜</p>
+          <div class="ticket-footer">Válido para siempre • Sin fecha de vencimiento</div>
+        </div>
+      </div>
+
+      <!-- El lienzo de raspado que cubre el premio -->
+      <canvas id="scratch-canvas" class="scratch-canvas" aria-label="Área de raspado"></canvas>
+    </div>
+
+    <button id="btn-to-tree" class="btn-main hidden" style="margin-top: 1.5rem;">
+      <span class="btn-inner">Continuar a las Sorpresas ✨</span>
+      <span class="btn-ring" aria-hidden="true"></span>
+    </button>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECCIÓN: MEDIDOR DE AMOR INFINITO (LOVE-O-METER)
+     ════════════════════════════════════════════════════ -->
+<section id="meter-section" class="scene scene--meter" aria-label="Medidor de amor infinito">
+
+  <div class="meter-card" id="meter-card">
+    <div class="meter-badge">✦ MEDIDOR DE AMOR ✦</div>
+    <h2 class="meter-title">¿Cuánto te ama Sergio?</h2>
+    <p class="meter-subtitle">Coloca y mantén presionado tu dedo en el botón para calcularlo 💜</p>
+
+    <div class="meter-display">
+      <div class="meter-number" id="meter-number">0%</div>
+      <div class="meter-gauge-track">
+        <div class="meter-gauge-fill" id="meter-gauge-fill"></div>
+      </div>
+    </div>
+
+    <!-- Botón táctil para mantener presionado -->
+    <button id="btn-meter-hold" class="meter-btn-hold" type="button" aria-label="Mantener presionado para medir amor">
+      <div class="meter-btn-inner">
+        <svg viewBox="0 0 24 24" class="meter-hold-heart" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
+        </svg>
+        <span class="meter-hold-text">MANTÉN PRESIONADO AQUÍ</span>
+      </div>
+      <div class="meter-btn-pulse"></div>
+    </button>
+
+    <div id="meter-result" class="meter-feedback" aria-live="polite"></div>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECCIÓN: EL FRASCO DE LAS 17 RAZONES
+     ════════════════════════════════════════════════════ -->
+<section id="jar-section" class="scene scene--jar" aria-label="Frasco de las 17 razones">
+
+  <div class="jar-card">
+    <div class="jar-badge">✦ 17 MOTIVOS PARA AMARTE ✦</div>
+    <h2 class="jar-title">El Frasco de las 17 Razones</h2>
+    <p class="jar-subtitle">Toca el frasco de cristal para atrapar una estrella con una razón 💜</p>
+
+    <!-- Frasco animado en SVG -->
+    <div class="jar-interactive-wrap">
+      <div id="magic-jar" class="magic-jar" role="button" tabindex="0" aria-label="Tocar el frasco para sacar una razón">
+        <svg viewBox="0 0 160 220" class="jar-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Tapa de corcho y lazo violeta -->
+          <rect x="52" y="8" width="56" height="18" rx="4" fill="#a855f7" stroke="#c084fc" stroke-width="1.5"/>
+          <path d="M48 26 L112 26 L106 38 L54 38 Z" fill="#7c3aed" opacity="0.9"/>
+          <!-- Lazo colgante -->
+          <path d="M72 38 Q65 60 55 65" stroke="#e9d5ff" stroke-width="2" fill="none"/>
+          <path d="M88 38 Q95 60 105 65" stroke="#e9d5ff" stroke-width="2" fill="none"/>
+          <!-- Cuerpo de cristal transparente del frasco -->
+          <rect x="25" y="38" width="110" height="165" rx="28" fill="rgba(45, 27, 105, 0.22)" stroke="#b57bee" stroke-width="2.5"/>
+          <!-- Reflejo curvo del cristal -->
+          <path d="M38 55 Q32 120 38 185" stroke="rgba(255, 255, 255, 0.45)" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <!-- Estrellitas flotando dentro del frasco -->
+          <g class="jar-stars-inside">
+            <circle cx="50" cy="80" r="4.5" fill="#fef08a" opacity="0.85" filter="url(#glow-soft)"/>
+            <circle cx="95" cy="90" r="5.5" fill="#c084fc" opacity="0.9" filter="url(#glow-soft)"/>
+            <circle cx="70" cy="120" r="6" fill="#f472b6" opacity="0.85" filter="url(#glow-soft)"/>
+            <circle cx="110" cy="140" r="4" fill="#e9d5ff" opacity="0.9"/>
+            <circle cx="55" cy="155" r="5" fill="#fef08a" opacity="0.8"/>
+            <circle cx="85" cy="165" r="4.5" fill="#c084fc" opacity="0.85"/>
+            <circle cx="75" cy="70" r="3.5" fill="#fff" opacity="0.9"/>
+            <circle cx="100" cy="115" r="4.5" fill="#fef08a" opacity="0.8"/>
+          </g>
+          <!-- Etiqueta del frasco -->
+          <rect x="42" y="112" width="76" height="38" rx="8" fill="rgba(15, 6, 32, 0.85)" stroke="#c084fc" stroke-width="1"/>
+          <text x="80" y="130" text-anchor="middle" font-size="9" fill="#f3e8ff" font-family="'Playfair Display', serif" font-style="italic">17 Razones</text>
+          <text x="80" y="142" text-anchor="middle" font-size="7" fill="#c084fc" letter-spacing="1">PARA AMARTE</text>
+        </svg>
+
+        <!-- Estrellita que sale volando al pulsar -->
+        <div id="jar-flying-star" class="jar-flying-star hidden" aria-hidden="true">✨</div>
+      </div>
+    </div>
+
+    <div class="jar-counter" id="jar-counter">Has descubierto 0 de 17 razones 💜</div>
+    <p class="jar-tap-hint">Toca el frasco para descubrir una nueva razón</p>
+    <button id="btn-jar-to-tree" class="btn-main" style="margin-top: 1.2rem; font-size: 0.95rem;">
+      <span class="btn-inner">Continuar al Árbol de Recuerdos 🌳✨</span>
+      <span class="btn-ring" aria-hidden="true"></span>
+    </button>
+  </div>
+
+</section>
+
+<!-- Modal de la Razón Revelada -->
+<div id="jar-modal" class="photo-modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-backdrop" id="jar-modal-backdrop"></div>
+  <div class="modal-card jar-reason-card">
+    <button class="modal-close" id="jar-modal-close" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <div class="jar-star-icon" aria-hidden="true">✨💜✨</div>
+    <h3 id="jar-modal-title" class="jar-reason-title">Razón Nº 1 de 17</h3>
+    <p id="jar-modal-text" class="jar-reason-text"></p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECCIÓN 3 — ÁRBOL MÁGICO DE RECUERDOS
+     ════════════════════════════════════════════════════ -->
+<section id="tree-section" class="scene scene--tree" aria-label="Árbol de recuerdos">
+
+  <div class="tree-header">
+    <h2 class="section-title">El árbol de nuestros recuerdos</h2>
+    <p class="section-sub">Toca una flor para descubrir un momento 💜</p>
+  </div>
+
+  <div class="tree-scene">
+    <svg id="magic-tree" class="tree-svg"
+         viewBox="0 0 360 545"
+         xmlns="http://www.w3.org/2000/svg"
+         role="img"
+         aria-label="Árbol mágico con nuestros recuerdos">
+
+      <defs>
+        <!-- ClipPath para fotos en el árbol -->
+        <clipPath id="photo-frame-clip">
+          <circle cx="0" cy="0" r="15"/>
+        </clipPath>
+
+        <!-- Gradiente suelo -->
+        <radialGradient id="groundGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="#c084fc" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#c084fc" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Gradiente tronco -->
+        <linearGradient id="trunkGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#8b5cf6"/>
+          <stop offset="100%" stop-color="#4c1d95"/>
+        </linearGradient>
+
+        <!-- Gradiente ramas -->
+        <linearGradient id="branchGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stop-color="#7c3aed"/>
+          <stop offset="100%" stop-color="#6d28d9"/>
+        </linearGradient>
+
+        <!-- Filtro glow suave -->
+        <filter id="glow-soft" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+
+        <!-- Filtro glow fuerte -->
+        <filter id="glow-strong" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur stdDeviation="6" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Luz del suelo -->
+      <g id="tree-ground">
+        <ellipse cx="180" cy="515" rx="100" ry="8"
+                 fill="url(#groundGlow)" opacity="0"/>
+      </g>
+
+      <!-- Tronco y ramas — JS los anima con stroke-dashoffset -->
+      <g id="tree-structure">
+
+        <!-- Raíces -->
+        <path id="root-l"
+              d="M180 512 C162 516 138 522 112 527 C94 530 76 532 58 534"
+              stroke="url(#trunkGrad)" stroke-width="4.5"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+        <path id="root-r"
+              d="M180 512 C198 516 222 522 248 527 C266 530 284 532 302 534"
+              stroke="url(#trunkGrad)" stroke-width="4.5"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+        <path id="root-c"
+              d="M180 512 C178 521 176 529 174 537"
+              stroke="url(#trunkGrad)" stroke-width="3"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+
+        <!-- Tronco principal -->
+        <path id="trunk"
+              d="M180 512 C178 485 173 455 171 425 C169 405 173 385 176 365 C178 348 175 333 176 313"
+              stroke="url(#trunkGrad)" stroke-width="13"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+
+        <!-- Rama izquierda baja -->
+        <path id="branch-l2"
+              d="M173 428 C160 416 142 406 120 398 C102 391 84 388 66 383"
+              stroke="url(#branchGrad)" stroke-width="6"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+
+        <!-- Rama derecha baja -->
+        <path id="branch-r2"
+              d="M175 423 C191 410 212 400 232 393 C254 385 274 381 296 376"
+              stroke="url(#branchGrad)" stroke-width="6"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+
+        <!-- Rama izquierda media -->
+        <path id="branch-l1"
+              d="M176 368 C164 353 149 338 131 323 C116 311 97 306 81 300"
+              stroke="url(#branchGrad)" stroke-width="7"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+
+        <!-- Rama derecha media -->
+        <path id="branch-r1"
+              d="M175 362 C189 347 207 337 224 322 C240 309 257 300 276 292"
+              stroke="url(#branchGrad)" stroke-width="7"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+
+        <!-- Sub-rama izquierda -->
+        <path id="branch-l1a"
+              d="M131 323 C119 310 109 296 101 280"
+              stroke="url(#branchGrad)" stroke-width="4"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+
+        <!-- Sub-rama derecha -->
+        <path id="branch-r1a"
+              d="M224 322 C234 309 243 294 246 278"
+              stroke="url(#branchGrad)" stroke-width="4"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+
+        <!-- Rama alta izquierda -->
+        <path id="branch-top-l"
+              d="M176 313 C165 297 149 280 134 263 C121 248 107 238 95 227"
+              stroke="url(#branchGrad)" stroke-width="5"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+
+        <!-- Rama alta derecha -->
+        <path id="branch-top-r"
+              d="M176 313 C189 297 207 282 222 267 C237 254 253 244 269 234"
+              stroke="url(#branchGrad)" stroke-width="5"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+
+        <!-- Rama central alta -->
+        <path id="branch-top-c"
+              d="M176 313 C175 296 175 278 174 252"
+              stroke="url(#branchGrad)" stroke-width="4"
+              fill="none" stroke-linecap="round" class="tree-path"/>
+
+      </g>
+
+      <!-- Flores — generadas por JS -->
+      <g id="tree-flowers"></g>
+
+      <!-- Luces parpadeantes — generadas por JS -->
+      <g id="tree-lights"></g>
+
+    </svg>
+  </div>
+
+  <div class="tree-footer-action" style="text-align: center; margin: 1.2rem auto 2rem; position: relative; z-index: 10;">
+    <button id="btn-tree-to-letter" class="btn-main" style="font-size: 0.95rem;">
+      <span class="btn-inner">Leer la Carta de los 17 Meses 💌</span>
+      <span class="btn-ring" aria-hidden="true"></span>
+    </button>
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECCIÓN 3 — CARTA DE AMOR
+     ════════════════════════════════════════════════════ -->
+<section id="letter-section" class="scene scene--letter" aria-label="Carta de amor">
+
+  <div class="letter-container">
+
+    <!-- Decoración superior -->
+    <div class="letter-deco" aria-hidden="true">
+      <svg viewBox="0 0 200 38" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 19 Q50 4 100 19 Q150 34 190 19"
+              stroke="#b57bee" stroke-width="1" fill="none" opacity="0.6"/>
+        <circle cx="100" cy="19" r="3" fill="#c084fc" opacity="0.9"/>
+        <circle cx="10"  cy="19" r="2" fill="#b57bee" opacity="0.45"/>
+        <circle cx="190" cy="19" r="2" fill="#b57bee" opacity="0.45"/>
+        <circle cx="55"  cy="14" r="1.5" fill="#c084fc" opacity="0.5"/>
+        <circle cx="145" cy="14" r="1.5" fill="#c084fc" opacity="0.5"/>
+      </svg>
+    </div>
+
+    <header class="letter-header">
+      <h2 class="letter-title">Para el amor de mi vida</h2>
+      <p class="letter-months">17 meses de nuestra historia</p>
+    </header>
+
+    <!-- Carta — el texto se escribe con JS -->
+    <div class="letter-card">
+      <div id="letter-text" aria-live="polite"></div>
+      <span id="letter-cursor" aria-hidden="true">|</span>
+    </div>
+
+    <div class="letter-actions">
+      <button id="btn-show-all" class="btn-sec">Leer toda la carta</button>
+    </div>
+
+    <!-- Decoración inferior -->
+    <div class="letter-deco" aria-hidden="true">
+      <svg viewBox="0 0 200 38" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 19 Q50 34 100 19 Q150 4 190 19"
+              stroke="#b57bee" stroke-width="1" fill="none" opacity="0.6"/>
+        <!-- Mini corazón central SVG -->
+        <path d="M100 22 C100 19 97 16 94 16 C91 16 89 19 89 22 C89 25 91 28 100 32 C109 28 111 25 111 22 C111 19 109 16 106 16 C103 16 100 19 100 22 Z"
+              fill="#c084fc" opacity="0.55"/>
+      </svg>
+    </div>
+
+    <div class="letter-footer-action" style="text-align: center; margin-top: 1.8rem; position: relative; z-index: 10;">
+      <button id="btn-letter-to-promises" class="btn-main" style="font-size: 0.95rem;">
+        <span class="btn-inner">Abrir el Cofre de Promesas 🗝️💜</span>
+        <span class="btn-ring" aria-hidden="true"></span>
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECCIÓN: COFRE DE PROMESAS PARA EL FUTURO
+     ════════════════════════════════════════════════════ -->
+<section id="promises-section" class="scene scene--promises" aria-label="Promesas para el futuro">
+
+  <div class="promises-wrap">
+    <div class="promises-badge">✦ NUESTRO MAÑANA ✦</div>
+    <h2 class="promises-title">Cofre de Promesas para el Futuro</h2>
+    <p class="promises-subtitle">Tres cartas selladas con amor para los momentos que están por venir 💜</p>
+
+    <div class="promises-grid">
+      <!-- Carta 1 -->
+      <div id="promise-card-1" class="promise-card" role="button" tabindex="0" aria-label="Abrir carta para un día difícil">
+        <div class="promise-wax-seal">
+          <svg viewBox="0 0 24 24" class="seal-heart" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#f3e8ff"/>
+          </svg>
+        </div>
+        <span class="promise-tag">Para abrir cuando...</span>
+        <h3 class="promise-card-title">Me extrañes en un día nublado 🌧️</h3>
+        <span class="promise-hint">Toca para desellar la carta</span>
+      </div>
+
+      <!-- Carta 2 -->
+      <div id="promise-card-2" class="promise-card" role="button" tabindex="0" aria-label="Abrir carta para los 2 años">
+        <div class="promise-wax-seal">
+          <svg viewBox="0 0 24 24" class="seal-heart" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#f3e8ff"/>
+          </svg>
+        </div>
+        <span class="promise-tag">Para abrir cuando...</span>
+        <h3 class="promise-card-title">Cumplamos 2 años juntos 🥂</h3>
+        <span class="promise-hint">Toca para desellar la carta</span>
+      </div>
+
+      <!-- Carta 3 -->
+      <div id="promise-card-3" class="promise-card" role="button" tabindex="0" aria-label="Abrir carta para cuando estemos viejitos">
+        <div class="promise-wax-seal">
+          <svg viewBox="0 0 24 24" class="seal-heart" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#f3e8ff"/>
+          </svg>
+        </div>
+        <span class="promise-tag">Para abrir cuando...</span>
+        <h3 class="promise-card-title">Estemos viejitos y miremos atrás 👵👴</h3>
+        <span class="promise-hint">Toca para desellar la carta</span>
+      </div>
+    </div>
+
+    <div class="promises-footer-action" style="text-align: center; margin-top: 2rem; position: relative; z-index: 10;">
+      <button id="btn-promises-to-finale" class="btn-main" style="font-size: 0.95rem;">
+        <span class="btn-inner">Una última pregunta para ti... 💜</span>
+        <span class="btn-ring" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+
+</section>
+
+<!-- Modal de la Promesa Futura -->
+<div id="promise-modal" class="photo-modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-backdrop" id="promise-modal-backdrop"></div>
+  <div class="modal-card promise-letter-card">
+    <button class="modal-close" id="promise-modal-close" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <div class="promise-wax-badge">💌 Promesa de Sergio para Dania 💌</div>
+    <h3 id="promise-modal-title" class="promise-modal-title"></h3>
+    <div class="promise-letter-body">
+      <p id="promise-modal-text"></p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     SECCIÓN 4 — FINAL EMOTIVO
+     ════════════════════════════════════════════════════ -->
+<section id="finale-section" class="scene scene--finale" aria-label="Sorpresa final">
+
+  <!-- Canvas para corazones flotantes -->
+  <canvas id="finale-canvas" aria-hidden="true"></canvas>
+
+  <div class="finale-wrap">
+
+    <p class="finale-question">
+      ¿Volverías a elegirme para escribir<br>todos los capítulos que nos faltan?
+    </p>
+
+    <button id="btn-yes" class="btn-main">
+      <span class="btn-inner">Mil veces, contigo 💜</span>
+      <span class="btn-ring" aria-hidden="true"></span>
+    </button>
+
+    <!-- Revelación — aparece tras pulsar el botón -->
+    <div id="finale-reveal" aria-hidden="true">
+
+      <p class="finale-msg">
+        Te amo, hoy, en nuestros 17 meses<br>
+        y en todos los que nos faltan por vivir.
+      </p>
+
+      <!-- Sobre SVG interactivo -->
+      <div id="envelope-wrapper" class="env-wrap"
+           role="button" tabindex="0"
+           aria-label="Abrir sobre con posdata"
+           aria-expanded="false">
+
+        <svg id="env-svg" class="env-svg"
+             viewBox="0 0 130 88"
+             xmlns="http://www.w3.org/2000/svg"
+             aria-hidden="true">
+
+          <!-- Cuerpo del sobre -->
+          <rect x="4" y="28" width="122" height="55" rx="5"
+                fill="#2d1b69" stroke="#b57bee" stroke-width="1.5"/>
+
+          <!-- Sombras laterales internas -->
+          <path d="M4 28 L60 62 L4 83 Z"
+                fill="#1e1050" stroke="#b57bee" stroke-width="0.6" stroke-linejoin="round"/>
+          <path d="M126 28 L70 62 L126 83 Z"
+                fill="#1e1050" stroke="#b57bee" stroke-width="0.6" stroke-linejoin="round"/>
+          <!-- Triángulo inferior -->
+          <path d="M4 83 L65 58 L126 83 Z"
+                fill="#1a0a2e" stroke="#b57bee" stroke-width="0.8"/>
+
+          <!-- Solapa superior (animada) -->
+          <path id="env-flap"
+                d="M4 28 L65 60 L126 28 Z"
+                fill="#3b1f8a" stroke="#b57bee" stroke-width="1.5"/>
+
+          <!-- Sello de corazón -->
+          <g id="env-seal" transform="translate(65,48)">
+            <circle cx="0" cy="0" r="9" fill="#2d1b69" stroke="#b57bee" stroke-width="1"/>
+            <path d="M0 5 C0 2 -3.5 -2 -7 -2 C-10.5 -2 -12 1 -12 4 C-12 7 -9 11 0 16 C9 11 12 7 12 4 C12 1 10.5 -2 7 -2 C3.5 -2 0 2 0 5 Z"
+                  fill="#c084fc" opacity="0.85" transform="scale(0.65)"/>
+          </g>
+        </svg>
+
+        <p class="env-hint">Toca el sobre para leer la posdata</p>
+
+        <!-- Posdata (oculta hasta abrir el sobre) -->
+        <div id="postdata-reveal" aria-hidden="true">
+          <p id="postdata-text"></p>
+        </div>
+
+      </div><!-- /env-wrap -->
+
+    </div><!-- /finale-reveal -->
+
+  </div><!-- /finale-wrap -->
+
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     MODAL DE FOTOGRAFÍAS
+     ════════════════════════════════════════════════════ -->
+<div id="photo-modal"
+     class="photo-modal"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="modal-phrase"
+     aria-hidden="true">
+
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+
+  <div class="modal-card">
+
+    <button class="modal-close" id="modal-close" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M18 6L6 18M6 6l12 12"
+              stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="modal-frame">
+      <img id="modal-img" src="" alt="" loading="lazy">
+
+      <!-- Placeholder mientras no hay foto -->
+      <div class="modal-placeholder" id="modal-placeholder">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="50" cy="34" r="18"
+                  stroke="#b57bee" stroke-width="1.5" fill="none"/>
+          <path d="M15 82 Q25 58 50 58 Q75 58 85 82"
+                stroke="#b57bee" stroke-width="1.5" fill="none"/>
+          <path d="M50 48 C50 43 47 39 44 39 C41 39 38 42 38 45 C38 48 41 52 50 56 C59 52 62 48 62 45 C62 42 59 39 56 39 C53 39 50 43 50 48 Z"
+                fill="#c084fc" opacity="0.45"/>
+        </svg>
+        <p>Tu foto aquí</p>
+      </div>
+    </div>
+
+    <p id="modal-phrase" class="modal-phrase"></p>
+
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     REPRODUCTOR DE VINILO GIRATORIO
+     ════════════════════════════════════════════════════ -->
+<div id="vinyl-player" class="vinyl-player" aria-label="Reproductor de música">
+  <div class="vinyl-card">
+    <button id="btn-vinyl" class="vinyl-btn" aria-label="Reproducir o pausar música" aria-pressed="false">
+      <!-- Disco de vinilo con estrías y centro -->
+      <div class="vinyl-disc-wrap">
+        <div id="vinyl-disc" class="vinyl-disc">
+          <div class="vinyl-groove vinyl-groove--1"></div>
+          <div class="vinyl-groove vinyl-groove--2"></div>
+          <div class="vinyl-groove vinyl-groove--3"></div>
+          <div class="vinyl-label">
+            <svg viewBox="0 0 24 24" class="vinyl-label-heart" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#c084fc"/>
+            </svg>
+            <span class="vinyl-label-text">17 M</span>
+          </div>
+          <div class="vinyl-center-hole"></div>
+        </div>
+
+        <!-- Brazo / Aguja del tocadiscos -->
+        <div id="vinyl-tonearm" class="vinyl-tonearm" aria-hidden="true">
+          <div class="tonearm-pivot"></div>
+          <div class="tonearm-arm"></div>
+          <div class="tonearm-head"></div>
+        </div>
+
+        <!-- Indicador de estado Play/Pausa -->
+        <div class="vinyl-overlay-icon" aria-hidden="true">
+          <svg id="vinyl-icon-play" viewBox="0 0 24 24" class="vinyl-svg-icon" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5v14l11-7z" fill="currentColor"/>
+          </svg>
+          <svg id="vinyl-icon-pause" viewBox="0 0 24 24" class="vinyl-svg-icon hidden" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+    </button>
+
+    <div class="vinyl-info">
+      <div class="vinyl-song-title">Apocalypse</div>
+      <div class="vinyl-song-artist">Cigarettes After Sex</div>
+      <div class="vinyl-hint">Toca el disco para pausar / sonar 🎵</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     SCRIPTS (en orden de dependencias)
+     ════════════════════════════════════════════════════ -->
+<script src="config/content.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/timer.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/scratch.js"></script>
+<script src="js/lovemeter.js"></script>
+<script src="js/jar.js"></script>
+<script src="js/promises.js"></script>
+<script src="js/tree.js"></script>
+<script src="js/letter.js"></script>
+<script src="js/finale.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
